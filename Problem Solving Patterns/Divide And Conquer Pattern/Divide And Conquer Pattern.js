@@ -29,6 +29,7 @@ console.log(search([1, 2, 3, 4, 5, 6], 11)) // -1
 //! Time Complexity - O(n)
 //! Space Complexity - O(1)
 
+
 //* Better solution - Binary Search:
 
 const search2 = (arr, val) => {
