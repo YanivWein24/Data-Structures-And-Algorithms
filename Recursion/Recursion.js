@@ -79,3 +79,22 @@ console.log(factorialRecursion(7)) // 5040
 console.log(factorialRecursion(3)) // 6
 console.log(factorialRecursion(1)) // 1
 console.log(factorialRecursion(0)) // 0
+
+
+
+//* Power:
+
+//? Write a function called power which accepts a base and an exponent.
+//? The function should return the power of the base to the exponent.
+//? This function should mimic the functionality of Math.pow().
+//? Do not worry about negative bases and exponents.
+
+const power = (num, exponent) => {
+    if (exponent === 0) return 1
+    return num * power(num, exponent - 1)
+}
+
+console.log(power(2, 3)) // 8
+console.log(power(4, 3)) // 64
+console.log(power(12, 0)) // 1
+console.log(power(0, 12)) // 
