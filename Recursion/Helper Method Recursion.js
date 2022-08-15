@@ -51,7 +51,6 @@ const collectOddValues2 = (arr) => {
     if (arr[0] % 2) {
         newArr.push(arr[0])
     }
-
     newArr = newArr.concat(collectOddValues2(arr.slice(1)))
     return newArr
 }
