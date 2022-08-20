@@ -88,6 +88,6 @@ console.log(quickSort([100, -3, 4, 6, 9, 1, 2, 5, 3])) // [-3, 1, 2, 3,4, 5, 6, 
 
 //! Time Complexity:
 //! Best / Average Case: O(n log(n))
-//! Worst Case: O(n^2)
+//! Worst Case (for example - sorted / nearly sorted arrays): O(n^2)
 
 //! Space Complexity: O(n)
