@@ -122,13 +122,6 @@ class Node {
     }
 }
 
-const first = new Node("Hi")
-first.next = new Node("How")
-first.next.next = new Node("Are")
-first.next.next.next = new Node("You")
-console.log(first) // Node {val: 'Hi',next: Node { val: 'How', next: Node { val: 'Are', next: [Node] } }}
-
-
 class SinglyLinkedList {
     constructor() {
         this.head = null
