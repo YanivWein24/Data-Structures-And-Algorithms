@@ -1,4 +1,4 @@
-//! Doubly Linked Lists.js
+//! Doubly Linked Lists:
 
 //* A data structure that contains a *head*, *tail* and *length* properties.
 //* Linked lists consist of nodes, and each node has a *value* and a *pointer* to another node or null.
@@ -167,9 +167,9 @@ class DoublyLinkedList {
             this.head.prev = newNode
             newNode.next = this.head
             this.head = newNode
-            this.length++
-            return this
         }
+        this.length++
+        return this
     }
     get(index) {
         if (index < 0 || index >= this.length) return null
@@ -233,24 +233,22 @@ class DoublyLinkedList {
 
 let list = new DoublyLinkedList()
 
-list.push(3)
-list.push(2)
-list.push(5)
+list.push(3).push(2).push(5)
 list.push(7)
 list.push(8)
 
 console.log(list)
 
 // DoublyLinkedList {
-//   head: <ref *1> Node {
-//     val: 3,
-//     next: Node { val: 2, next: [Node], prev: [Circular *1] },
-//     prev: null
-//   },
-//   tail: <ref *2> Node {
-//     val: 8,
-//     next: null,
-//     prev: Node { val: 7, next: [Circular *2], prev: [Node] }
-//   },
-//   length: 5
-// }
+//     head: <ref *1> Node {
+//       val: 3,
+//       next: Node { val: 2, next: [Node], prev: [Circular *1] },
+//       prev: null
+//     },
+//     tail: <ref *2> Node {
+//       val: 8,
+//       next: null,
+//       prev: Node { val: 7, next: [Circular *2], prev: [Node] }
+//     },
+//     length: 5
+//   } 
