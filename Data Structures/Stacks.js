@@ -1,6 +1,6 @@
 //! Stacks:
 
-//? LIFO - Last In First Out
+//? LIFO - *Last* In *First* Out
 
 //* A LIFO data structure!
 //* The LAST element added to the stack will be the FIRST element to be removed from the stack.
@@ -16,13 +16,13 @@
 //* Example Of A Stack:
 
 //*    last   size = 4     first
-//*  ->  4  ->  6  ->  8  ->  2
+//*  <-  4  <-  6  <-  8  <-  2
 //*        next   next   next
+//* The LAST item added to the stack will be the FIRST item to remove.
 
 //? Array Implementation:
 
-//? 1.
-//? *    * Setting the data inside an array.
+//? 1. Using an array with push() & pop():
 //? *    * Using "push" to add items to the *end* of the list.
 //? *    * Using "pop" to remove items from the *end* of the list.
 
@@ -34,10 +34,9 @@
 //? stack.pop()
 //? console.log(stack) // (["do 1", "do 2"])
 
-//? 2.
-//? *    * Setting the data inside an array.
-//? *    * Using "unshift" to add items to the *beginning* of the list.
-//? *    * Using "shift" to remove items from the *end* of the list.
+//? 2. Using an array with shift() & unshift():
+//? *    * Using "unshift" to add items to the *beginning* of the list.  // O(1)
+//? *    * Using "shift" to remove items from the *end* of the list.  // O(1)
 //! It's less efficient than using "pop" and "push" because adding or removing items from the *beginning*
 //! of the array causes a re-index of all the other items.
 
@@ -50,14 +49,14 @@
 //? console.log(stack) // (["do 1", "do 2"])
 
 
-//? Implementing using a linked list :
+//? Implementing using a "Stack" class :
 
 //! Time Complexity:
 
 //! Insertion - O(1)
 //! Removal - O(1)
-//! Searching - O(n)
-//! Access - O(n)
+//! Searching (less relevant) - O(n)
+//! Access (less relevant) - O(n)
 
 //? Methods Pseudocode:
 
@@ -73,13 +72,14 @@
 //? * Increment the size of the stack by 1.
 //? * Return the size of the stack.
 
-//? Pop(value) - same as "shift" with arrays (pushing from the beginning, instead of the end. takes O(1) instead of O(n))
+//? Pop(value) - same as "shift" with arrays (removing from the beginning, instead of the end. takes O(1) instead of O(n))
 //? * If there are no nodes in the stack, return null.
 //? * Create a temporary variable to store the "first" property of the stack (to be returned later).
-//? * If there is only 1 node, set the "first" and "last" properties to be null.
+//? * If there is only 1 node (this.size === 1 or this.first === this.last), set the "first" and "last" properties to be null.
 //? * If there is more than one node, set the "first" property to be the "next" property on the current "first".
 //? * Decrease the size of the stack by 1.
 //? * Return the value of the removed node.
+
 
 class Node {
     constructor(value) {
@@ -90,8 +90,8 @@ class Node {
 
 class Stack {
     constructor() {
-        this.first = null // same as "head"
-        this.last = null // same as "tail"
+        this.first = null // same as "head" with linked lists
+        this.last = null // same as "tail" with linked lists
         this.size = 0
     }
     push(value) {
