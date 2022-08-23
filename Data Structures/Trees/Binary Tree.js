@@ -4,18 +4,18 @@
 //* Every node to the *left* of a parent node is *always LESS* than the parent.
 //* Every node to the *right* of a parent node is *always GREATER* than the parent.
 
-//?       *NOT* a valid binary tree     |    *NOT* a valid binary tree     |    A valid binary tree
-//*  '12' have more than 2 children     |   left child bigger than parent  |    A valid binary tree
-//                      32                           65                           7
+//?       *NOT* a valid binary tree     |    *NOT* a valid binary tree     |    A valid binary tree!
+//*  '12' have more than 2 children     |   left child bigger than parent  |    A valid binary tree!
+//                      32 - root                    65 - root                    7 - root
 //                 ____|                          ___|___                      ___|___
 //                |                              |      |                     |      |
 //                V                              V      V                     V      V
 //               12                              85     87                    6      19
-//          _____|______                        leaf   leaf                  leaf    |___
-//         |     |     |                                                                | 
-//         V     V     V                                                                V 
-//        90    32    2                                                                 52
-//       leaf  leaf  leaf                                                              leaf
+//          _____|______                        leaf   leaf                 leaf     |___
+//         |     |     |                                                                 | 
+//         V     V     V                                                                 V 
+//        90    32    2                                                                  52
+//       leaf  leaf  leaf                                                               leaf
 
 
 //! Time Complexity:
@@ -24,7 +24,7 @@
 //! Searching - O(log(n)) - average / best case
 
 //! A Worst case scenario will look something like this:
-//! (O(n) - similar to lined lists)
+//! (O(n) - similar to linked lists)
 
 //                                          3
 //                                          |__
@@ -43,7 +43,7 @@
 
 //? Methods Pseudocode:
 
-//? insert() - can be iterative or recursive
+//? insert() - can be iterative or recursive:
 //? * This function should accept a value.
 //? * Create a new node using the given value.
 //? * Starting at the root:
@@ -59,7 +59,7 @@
 //?                 * If there is not, add that node as the "left" property
 //? * Return the final tree.
 
-//? find() - can be iterative or recursive
+//? find() - can be iterative or recursive:
 //? * This function should accept a value.
 //? * Create a new node using the given value.
 //? * Check if there is a root. if not - we're done searching, return false.
