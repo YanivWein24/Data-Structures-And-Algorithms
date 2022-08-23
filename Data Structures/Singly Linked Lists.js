@@ -78,8 +78,8 @@
 //? set(index, value) - Updating a node by it's position in the linked list:
 //? * This function should accept an index and a value.
 //? * Use the 'get' method to find the specific node.
-//? * If the node is not found, return false
-//? * Otherwise, set the value of that node to be the value passed to the function and return true
+//? * If the node is not found, return false.
+//? * Otherwise, set the value of that node to be the value passed to the function and return true.
 
 //? insert(index, value) - Adding a new node at a *specific* location:
 //? * This function should accept an index and a value.
@@ -103,14 +103,14 @@
 
 //? reverse() - Revering the order of a linked list:
 //! Common in CS technical reviews!
-//? * Swap the head and the tail
-//? * Create a variable called "next"
-//? * Create a variable called "prev"
-//? * Create a variable called "node" and initialize it to the head property
-//? * Loop through the list
-//? * Set "next" to be the next property on whatever node is
-//? * Set next property on the node to be whatever "prev" is
-//? * Set "prev" to be the value of the node variable
+//? * Swap the head and the tail.
+//? * Create a variable called "next".
+//? * Create a variable called "prev".
+//? * Create a variable called "node" and initialize it to the head property.
+//? * Loop through the list.
+//? * Set "next" to be the next property on whatever node is.
+//? * Set next property on the node to be whatever "prev" is.
+//? * Set "prev" to be the value of the node variable.
 //? * Set the node variable to be the value of the next variable.
 
 
@@ -251,29 +251,3 @@ console.log(list)
 // }
 // console.log(list.tail) // Node { val: 8, next: null }
 // console.log(list.head.next) // Node { val: 6, next: Node { val: 8, next: null } }
-
-list.pop()
-list.pop()
-console.log(list)
-
-list.push(6)
-list.push(7)
-list.shift()
-
-list.unshift(2)
-list.unshift(1)
-
-list.set(0, 10)
-list.set(1, 20)
-console.log((list.get(0)).val) // 10
-console.log((list.get(1)).val) // 20
-
-list.insert(0, 9)
-list.insert(1, 25)
-list.insert(6, 15)
-
-console.log(list.remove(6))
-console.log(list.remove(1))
-
-list.reverse()
-console.log(list)

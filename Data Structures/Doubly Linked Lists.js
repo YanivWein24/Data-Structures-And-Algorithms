@@ -58,6 +58,50 @@
 //? * Increment the length
 //? * Return the list
 
+//? get(index) - Retrieving a node by it's position in the linked list:
+//? * If the index is less than 0 or greater than or equal to the length of the list, return null.
+//? * If the index is less than or equal to *half* of the length og the lift:
+//?     * Loop through the list, starting from the *head* and loop towards the middle
+//?     * Return the node once it is found
+//? * If the index is greater than *half* of the length og the lift:
+//?     * Loop through the list, starting from the *tail* and loop towards the middle
+//?     * Return the node once it is found
+
+//? set(index, value) - Updating a node by it's position in the linked list:
+//? * This function should accept an index and a value.
+//? * Use the 'get' method to find the specific node.
+//? * If the node is not found, return false.
+//? * Otherwise, set the value of that node to be the value passed to the function and return true.
+
+//? insert(index, value) - Adding a new node at a *specific* location:
+//? * This function should accept an index and a value.
+//? * If the "index" is less than zero or greater than the length of the list, return false.
+//? * If the "index" is the same as the length of the list, use "push" to add  a new node to the end of the list.
+//? * If the "index" is 0, use "unshift" to add a new node to the beginning of the list.
+//? * Otherwise, using the "get" method, access the node at the position of (index - 1).
+//? * Set the "next" and "prev" properties on the correct nodes to link everything together.
+//? * Increase length property by 1.
+//? * Return true.
+
+//? remove(index) - Removing a new node from the linked list at a *specific* location:
+//? * If the "index" is less than zero or greater than or equal to the length of the list, return null.
+//? * if the index is equal to (this.length -1), use the "pop" method to remove the node from the *end* of the list.
+//? * if the index is 0, use the "shift" method to remove the node from the *beginning* of the list.
+//? * Otherwise, using the "get" method, access the node at the given index - 1.
+//? * Update the "next" and "prev" properties to remove the found node from the list.
+//? * Set the "next" and "prev" properties to null on the found node.
+//? * Decrement the length by 1.
+//? * Return the value of the removed node.
+
+
+//! Time Complexity:
+
+//! Insertion - O(1)
+//! Removal - O(1)
+//! Searching - O(n) Technically it's O(n/2) because we only search *half* of the list. but that still counts as O(n)
+//! Access - O(n)
+
+
 class Node {
     // val - piece of data, next - reference to the next node
     constructor(val) {
@@ -127,6 +171,64 @@ class DoublyLinkedList {
             return this
         }
     }
+    get(index) {
+        if (index < 0 || index >= this.length) return null
+        let current, counter
+        if (index <= (this.length / 2)) {
+            // console.log("Working from BOTTOM")
+            counter = 0
+            current = this.head
+            while (counter !== index) {
+                current = current.next
+                counter++
+            }
+        } else {
+            // console.log("Working from TOP")
+            counter = this.length - 1
+            current = this.tail
+            while (counter !== index) {
+                current = current.prev
+                counter--
+            }
+        }
+        return current
+    }
+    set(index, value) {
+        let foundNode = this.get(index) // can return the specific node , or null
+        if (foundNode) {
+            foundNode.val = value
+            return true
+        }
+        return false
+    }
+    insert(index, value) {
+        if (index < 0 || index > this.length) return null
+        if (index === 0) return !!this.unshift(value) // (!! - executes the unshift method, then returns true)
+        if (index === this.length) return !!this.push(value) // (!! - executes the push method, then returns true)
+        // (!!) - executes what comes after, and then returns true / false
+        // for example: "return !!this.push(value)" -> this.push returns some {value} -> !{value} = false -> !false = true
+        let newNode = new Node(value)
+        let beforeNode = this.get(index - 1)
+        let afterNode = beforeNode.next // (faster than doing this.get(index), and use the 'get' method again )
+        beforeNode.next = newNode, newNode.prev = beforeNode // connecting the new Node and the "before" node
+        newNode.next = afterNode, afterNode.prev = newNode // connecting the new Node and the "after" node
+        this.length++
+        return true
+    }
+    remove(index) {
+        if (index < 0 || index >= this.length) return null
+        if (index === 0) return this.shift()
+        if (index === this.length - 1) return this.pop()
+        let removedNode = this.get(index)
+        let beforeNode = removedNode.prev // faster then using this.get(index) again
+        let afterNode = removedNode.next
+        beforeNode.next = afterNode
+        afterNode.prev = beforeNode
+        removedNode.next = null
+        removedNode.prev = null
+        this.length--
+        return removedNode
+    }
 }
 
 let list = new DoublyLinkedList()
@@ -134,20 +236,21 @@ let list = new DoublyLinkedList()
 list.push(3)
 list.push(2)
 list.push(5)
+list.push(7)
+list.push(8)
 
-list.shift()
-list.unshift(3)
 console.log(list)
+
 // DoublyLinkedList {
-//    head: <ref *1> Node {
-//      val: 3,
-//      next: Node { val: 5, next: null, prev: [Circular *1] },
-//      prev: null
-//    },
-//    tail: <ref *2> Node {
-//      val: 5,
-//      next: null,
-//      prev: <ref *1> Node { val: 3, next: [Circular *2], prev: null }
-//    },
-//    length: 2
-//  }
+//   head: <ref *1> Node {
+//     val: 3,
+//     next: Node { val: 2, next: [Node], prev: [Circular *1] },
+//     prev: null
+//   },
+//   tail: <ref *2> Node {
+//     val: 8,
+//     next: null,
+//     prev: Node { val: 7, next: [Circular *2], prev: [Node] }
+//   },
+//   length: 5
+// }
