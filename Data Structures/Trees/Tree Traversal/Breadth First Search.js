@@ -1,5 +1,9 @@
 //! Breadth First Search:
-
+//* For each node:
+//* if it has a "left", add it to queue.
+//* if it has a "right", add it to queue.
+//* (the 2 previous lines should stay in that order!)
+//* going one "line" at a time from top to bottom. and for each "line" we go from left to right. 
 //                              Root
 //     ->   ->   ->    ->       10
 //                        ______|_______
