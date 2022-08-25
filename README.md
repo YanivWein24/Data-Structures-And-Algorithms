@@ -38,3 +38,4 @@
       * Depth First Search: Pre-Order, Post-Order, In-Order 
   * Binary Heaps
   * Priority Queues
+  * Hash Tables
