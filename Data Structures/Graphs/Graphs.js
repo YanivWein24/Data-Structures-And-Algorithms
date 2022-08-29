@@ -200,6 +200,6 @@ console.log(g)
 //     adjacencyList: { hello: [ 'world' ], world: [ 'hello', '!' ], '!': [ 'world' ] }
 //   }
 
-g.removeVertex('!')
+g.removeVertex('!') // removing this vertex entirely
 console.log(g)
 // Graph { adjacencyList: { hello: [ 'world' ], world: [ 'hello' ] } }
