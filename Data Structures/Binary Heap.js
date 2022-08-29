@@ -133,7 +133,6 @@ class MaxBinaryHeap {
             let rightChildIndex = 2 * index + 2
             let leftChild, rightChild
             let swap = null
-
             if (leftChildIndex < length) {
                 leftChild = this.values[leftChildIndex]
                 if (leftChild > element) {
