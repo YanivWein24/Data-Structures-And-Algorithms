@@ -175,17 +175,17 @@ class Graph {
     }
 }
 
-let g = new Graph()
+let graph = new Graph()
 
-g.addVertex("hello")
-g.addVertex("world")
-g.addVertex("!")
+graph.addVertex("hello")
+graph.addVertex("world")
+graph.addVertex("!")
 
-g.addEdge("world", "hello") // the order doesn't matter since it's an undirected graph
-g.addEdge("world", "!") // the order doesn't matter since it's an undirected graph
-g.addEdge("hello", "!") // the order doesn't matter since it's an undirected graph
+graph.addEdge("world", "hello") // the order doesn't matter since it's an undirected graph
+graph.addEdge("world", "!") // the order doesn't matter since it's an undirected graph
+graph.addEdge("hello", "!") // the order doesn't matter since it's an undirected graph
 
-console.log(g)
+console.log(graph)
 // Graph {
 //     adjacencyList: {
 //       hello: [ 'world', '!' ],
@@ -194,12 +194,12 @@ console.log(g)
 //     }
 //   }
 
-g.removeEdge("hello", "!") // removing the edges on both vertices
-console.log(g)
+weight.removeEdge("hello", "!") // removing the edges on both vertices
+console.log(weight)
 // Graph {
 //     adjacencyList: { hello: [ 'world' ], world: [ 'hello', '!' ], '!': [ 'world' ] }
 //   }
 
-g.removeVertex('!') // removing this vertex entirely
-console.log(g)
+weight.removeVertex('!') // removing this vertex entirely
+console.log(weight)
 // Graph { adjacencyList: { hello: [ 'world' ], world: [ 'hello' ] } }

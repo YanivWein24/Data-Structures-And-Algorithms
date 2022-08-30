@@ -5,16 +5,18 @@
   * Divide And Conquer  
   * Frequency Counter  
   * Multiple Points Pattern  
-  * Sliding Window Pattern
-  
+  * Sliding Window Pattern  
+  <br />
 * Recursion:
   * Recursion Syntax  
   * Recursion Helper Method  
+  <br />
   
 * Searching Algorithms:
   * Binary Search  
   * Linear Search  
   * Naive String Search  
+  <br />
   
 * Sorting Algorithms:
   * Bubble Sort  
@@ -23,6 +25,9 @@
   * Merge Sort  
   * Quick Sort  
   * Radix Sort  
+  <br />
+
+* Dijkstra's Algorithm  
   
 * Data Structures:
   * Linked Lists:
@@ -39,3 +44,6 @@
   * Binary Heaps
   * Priority Queues
   * Hash Tables
+  * Graphs:
+    * Graphs
+    * Graph Traversal
