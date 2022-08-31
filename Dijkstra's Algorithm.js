@@ -126,7 +126,7 @@
 
 
 //* Implementing a priority queue:
-//? For each node we push, we call sort() - which is O(n * log(n))
+//? We use bubbleUp() and sinkDown() to enqueue and dequeue vertices - these methods are O(log n) complexity.
 
 class Node {
     // val - piece of data, next - reference to the next node
